@@ -1,14 +1,8 @@
 let body = document.querySelector("#body");
+let date = document.querySelector("#date");
 
-chrome.storage.sync.get("bodyBackgroundColor", ({ bodyBackgroundColor })=>{
+chrome.storage.sync.get(["bodyBackgroundColor", "returnTime", "borrowDate"], ({ bodyBackgroundColor, returnTime, borrowDate })=>{
     body.style.backgroundColor = bodyBackgroundColor;
-});
-
-chrome.runtime.onStartup.addListener(() => {
-    let date = new Date();
-    console.log(`on start up this is the date pop: ${date}`);
-});
-
-chrome.runtime.onSuspend.addListener(() => {
-    console.log("on suspend!")
+    console.log(bodyBackgroundColor, returnTime, borrowDate);
+    date.innerHTML = returnTime ? `${returnTime}, ${borrowDate}` : "There's no date";
 });
