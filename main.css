@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    width: 20rem;
+    height: 10rem;
+    border: 5px solid greenyellow ;
+}
+
+.container {
+    background-color: khaki;
+    height: 100%;
+}
+
+.countdown{
+    background-color: indigo;
+    height: 75%;
+}
+
+.date{
+    background-color: hotpink;
+    height: 25%;
+}
