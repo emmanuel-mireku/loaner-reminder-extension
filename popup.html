@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fonts/Roboto/Roboto-Light.ttf">
     <title>Loaner Reminder</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body id="body">
     <div class="container">
         <div class="countdown">
-            <h1>Hello</h1>
+            <h3 id="countdown-value" class="countdown-text"></h3>
+            <p class="time-left-message">Time left to return chromebook.</p>
         </div>
         <div id="date" class="date">
-            1:23:45
+            <h4 class="text-center small-padding">Today's date: <span id="today-date"></span></h4>
+            <h4 class="text-center small-padding">Time borrowed: <span id="time-borrowed"></span></h4>
+            <h4 class="text-center small-padding">Time to return: <span id="time-to-return"></span></h4>
+            <h3 id="return-message" class="text-center small-padding"></h3>
         </div>
     </div>
     <script src="popup.js"></script>
+    <!-- <script src="background.js"></script> -->
 </body>
+
 </html>
