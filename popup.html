@@ -14,17 +14,15 @@
     <div class="container">
         <div class="countdown">
             <h3 id="countdown-value" class="countdown-text"></h3>
-            <!-- <p class="time-left-message">Time left to return chromebook.</p> -->
+            <p class="time-left-message" id="user"></p>
         </div>
         <div id="date" class="date">
-            <h4 class="text-center small-padding">Today's date: <span id="today-date"></span></h4>
-            <h4 class="text-center small-padding">Time borrowed: <span id="time-borrowed"></span></h4>
-            <h4 class="text-center small-padding">Time to return: <span id="time-to-return"></span></h4>
-            <h3 id="return-message" class="text-center small-padding"></h3>
+            <h4 class="text-center small-padding">Today's date: <span id="today-date" class="font"></span></h4>
+            <h4 class="text-center small-padding">Return before: <span id="time-to-return" class="font"></span></h4>
+            <h3 id="return-message" class="text-center small-padding font"></h3>
         </div>
     </div>
-    <script src="popup.js"></script>
-    <!-- <script src="background.js"></script> -->
+    <script src="./popup.js"></script>
 </body>
 
 </html>

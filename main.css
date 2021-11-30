@@ -4,6 +4,10 @@
     font-family: "Roboto" sans-serif;
 }
 
+.font{
+    font-family: "Roboto" sans-serif;
+}
+
 @font-face {
     font-family: "Roboto";
     src: url("fonts/Roboto/Roboto-Light.ttf") format("truetype");
