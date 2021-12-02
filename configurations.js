@@ -1,7 +1,9 @@
+let user = { email: "" };
+
 let configurations = {
   returnTimeObject: { hours: 16, minutes: 0, seconds: 0, milliseconds: 0 },
   popupBodyMainColor: "Yellow",
-  configDeadline: () =>
+  deadline: () =>
     new Date(
       new Date().setHours(...Object.values(configurations.returnTimeObject))
     ),
@@ -16,7 +18,7 @@ let configurations = {
       requireInteraction: true,
       iconUrl: "images/48.png",
       title: "Chromebook Loaner Reminder",
-      message: `Hi! You borrowed this Chromebook and you are responsible to return this on time!`,
+      message: `Hi ${user.email}! You borrowed this Chromebook and you are responsible to return this on time!`,
       contextMessage:
         "Remember to return this Chromebook on time to the tech office or else you will get into trouble.",
     },
@@ -62,4 +64,4 @@ let configurations = {
   },
 };
 
-export { configurations };
+export { configurations, user };

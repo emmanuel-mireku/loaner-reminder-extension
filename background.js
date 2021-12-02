@@ -1,29 +1,36 @@
-import { configurations } from "./configurations.js";
-
-chrome.storage.local.set({ configurations });
-
-console.log(new Date(configurations.configDeadline()) - 4 * 3600 * 1000);
+import { configurations, user } from "./configurations.js";
 
 let {
   introNotification,
   halfHourNotification,
   hourNotification,
   lastNotification,
-  configDeadline,
+  deadline,
 } = configurations;
+
+chrome.storage.local.set({
+  configurations,
+  user,
+  deadline: deadline().toLocaleString(),
+});
+
+chrome.identity.getProfileUserInfo(({ email }) => {
+  console.log(email);
+  chrome.storage.local.set({ user: { email } });
+});
 
 let { name: halfHourName, options: halfHourOptions } = halfHourNotification;
 let { name: hourName, options: hourOptions } = hourNotification;
 let { name: lastNoteName, options: lastNoteOptions } = lastNotification;
 
-let remindTimeForHour = new Date(configDeadline()).setHours(
-  configDeadline().getHours() - 1
+let remindTimeForHour = new Date(deadline()).setHours(
+  deadline().getHours() - 1
 );
 
 chrome.alarms.create(halfHourName, { when: remindTimeForHour / 2.0 });
 chrome.alarms.create(hourName, { when: remindTimeForHour });
 chrome.alarms.create(lastNoteName, {
-  when: new Date(configDeadline()).getTime(),
+  when: new Date(deadline()).getTime(),
 });
 
 chrome.alarms.onAlarm.addListener(({ name }) => {
